@@ -2,39 +2,21 @@
 Create pgm map from Gazebo world file for ROS localization
 
 ## Environment
-Tested on Ubuntu 16.04, ROS Kinetic, Boost 1.58, [Protocol Buffers v2.6.1](https://github.com/protocolbuffers/protobuf/releases/tag/v2.6.1)
+Tested on Ubuntu 20.04, ROS Noetic
 
-Install Protocol Buffers v2.6.1
-- Download the zip file 
-- Remove the previous protocol buffer version
-- `$ cd /usr/local/include/google`
-- `$ sudo rm -rf protobuf`
-- Download the zip file of [Protocol Buffers v2.6.1](https://github.com/protocolbuffers/protobuf/releases/tag/v2.6.1)
-- Follow the installations given [here](https://github.com/protocolbuffers/protobuf/tree/master/src):
-  1. `$ ./autogen.sh`
-
-  2. `$ ./configure`
-
-  3. `$ make`
-
-  4. `$ make check`
-
-  5. `$ sudo make install`
-
-  6. `$ sudo ldconfig`
-  
 ## Usage
 
 ### Add the package to your workspace
 1. Create a catkin workspace / Open the catkin workspace
 2. Clone the package to the src folder
-3. Comment the following lines in CMakeLists.txt in the msgs folder of pgm_map_creator and save it.(Edit it using gedit)
+3. `catkin_make`
+4. Comment the following lines in CMakeLists.txt in the msgs folder of pgm_map_creator and save it.(Edit it using gedit)
 ``` 
     #${PROTOBUF_IMPORT_DIRS}/vector2d.proto
     #${PROTOBUF_IMPORT_DIRS}/header.proto
     #${PROTOBUF_IMPORT_DIRS}/time.proto
 ```
-4. `catkin_make` and `source devel/setup.bash`
+5. `catkin_make` again
 
 ### Add the map and insert the plugin
 1. Add your world file to world folder in the pgm_map_creator folder
